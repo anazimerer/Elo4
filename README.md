@@ -1,12 +1,12 @@
 ### Organização:
 
-📂src &nbsp;
-🔌 routes.js &nbsp;
-📂components &nbsp;
-📂 styles(estilo global da aplicação) &nbsp;
-📂 pages &nbsp;
-📂 services (arquivo de api) &nbsp;
-📂 assets / 📂images (arquivos de imagens) &nbsp;
+📂src &nbsp;&nbsp;
+🔌 routes.js &nbsp;&nbsp;
+📂components &nbsp;&nbsp;
+📂 styles(estilo global da aplicação) &nbsp;&nbsp;
+📂 pages &nbsp;&nbsp;
+📂 services (arquivo de api) &nbsp;&nbsp;
+📂 assets / 📂images (arquivos de imagens) &nbsp;&nbsp;
 
 ## 📂 Components
 
