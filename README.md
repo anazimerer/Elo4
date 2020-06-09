@@ -1,12 +1,12 @@
 ### Organização:
 
 📂src
-&nbsp;&nbsp;🔌 routes.js
-&nbsp;&nbsp;📂components
-&nbsp;&nbsp;📂 styles(estilo global da aplicação)
-&nbsp;&nbsp;📂 pages
-&nbsp;&nbsp;📂 services (arquivo de api)
-&nbsp;&nbsp;📂 assets / 📂images (arquivos de imagens)
+&nbsp;&nbsp;🔌 routes.js <br/>
+&nbsp;&nbsp;📂components<br/>
+&nbsp;&nbsp;📂 styles(estilo global da aplicação)<br/>
+&nbsp;&nbsp;📂 pages<br/>
+&nbsp;&nbsp;📂 services (arquivo de api)<br/>
+&nbsp;&nbsp;📂 assets / 📂images (arquivos de imagens)<br/>
 
 ## 📂 Components
 
@@ -43,11 +43,17 @@ Biblioteca para icones, dessa forma podemos deixar a aplicação mais leve
 para usa-la é bem simples
 
 Entre no site do React Icons olhe qual icone quer, depois só dar um:
+
+```lang-js
 import { FaBeer } from 'react-icons/fa';
+```
+
 **/fa -> foi pego da pasta fa, existe inumeras pastas, basta olha a doc deles.**
 
 depois de importado só usar
 
 exemplo:
 
+```lang-js
 <h3> Lets go for a <FaBeer />? </h3>
+```
