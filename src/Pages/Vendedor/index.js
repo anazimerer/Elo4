@@ -22,12 +22,20 @@ function Vendedor() {
         })
     })
     
-    return(
+    
+    async function deleteProduto(id) {
+      try{
+        const response = await api.delete(`https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products/${id}`)
+      } catch (error){
+        console.log(error)
+      }
+    }
 
+    return(
       <div>
         
         {listProduct.map((product) => (
-          <span key={product.id}><img src={product.photos} />{product.name}</span>
+          <span key={product.id}><img src={product.photos} />{product.name} <span onClick={() => deleteProduto(product.id)}>X</span></span>
         ))}
         
       </div>
