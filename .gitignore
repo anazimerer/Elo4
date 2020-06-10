@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/Pages/Home/index.js
+src/App.js
+package-lock.json
+package.json
+src/App.js
+src/Pages/Home/index.js
+package.json
