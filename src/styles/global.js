@@ -12,7 +12,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 body, input, button {
-  font:14px Arial, sans-serif;
+  font:15px Arial, sans-serif;
 }
 button{
   cursor:pointer;
