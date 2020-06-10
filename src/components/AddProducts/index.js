@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     margin: {
         marginLeft: theme.spacing(2),
-        marginTop: 5,
+        marginTop: 4,
     }
   }));
 
@@ -75,8 +75,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={name}
                         fullWidth
-                        margin="dense"
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="Nome do produto"
                         onChange={ (e) => setName(e.target.value) }
                     />
@@ -85,7 +85,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={description}
                         fullWidth
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="Descrição do produto"
                         onChange={ (e) => setDescription(e.target.value) }
                     />
@@ -94,7 +95,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={price}
                         fullWidth
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="Preço do produto"
                         onChange={ (e) => setPrice(e.target.value) }
                     />
@@ -103,7 +105,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={paymentMethod}
                         fullWidth
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="Forma de pagamento"
                         onChange={ (e) => setPaymentMethod(e.target.value) }
                     />
@@ -112,7 +115,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={category}
                         fullWidth
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="Categoria do produto"
                         onChange={ (e) => setCategory(e.target.value) }
                     />
@@ -121,7 +125,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={photos}
                         fullWidth
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="URL da foto do produto"
                         onChange={ (e) => setPhotos(e.target.value) }
                     />
@@ -130,7 +135,8 @@ export default function AddProducts () {
                 <Grid item xs={12}>
                     <TextField value={installments}
                         fullWidth
-                        style={{ margin: 10 }}
+                        style={{ margin: 8 }}
+                        variant="outlined"
                         placeholder="Forma de parcelamento"
                         onChange={ (e) => setInstallments(e.target.value) }
                     />
