@@ -5,6 +5,7 @@ import AddProducts from '../../components/AddProducts/index.js'
 
 function Home() {
   return <AddProducts />;
+
 }
 
 export default Home;
