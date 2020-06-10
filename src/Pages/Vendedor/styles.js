@@ -4,19 +4,20 @@ export const Container = styled.div`
     display:grid;
 `;
 export const SubMenu = styled.div`
-    display:grid;
-    height: 250px;
 `;
 export const ContainerSup = styled.div`
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: #1DA89A;
+    height: 100px;
 `;
 
 export const ContainerInf = styled.div`
     background-color: #FFFFFF;
     text-align: center;
     justify-content: center;
+    height: 125px;
+    padding: 1rem;
 `;
 export const Products = styled.div`
     display: grid;
@@ -26,18 +27,12 @@ export const Products = styled.div`
 export const Product = styled.div`
     text-align: center;
 `
-export const DescDel = styled.div`
-    width: 300px;
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr)
-`
-export const Desc = styled.div`
+export const Location = styled.span`
     font-size: 20px;
-    grid-column: 1/12;
-    text-align: center;
 `
-export const Delete = styled.div`
-    grid-column-start: 12;
-    text-align: center;
-`
+
+export const SectionAddProduct = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    `
