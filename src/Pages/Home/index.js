@@ -1,7 +1,9 @@
 import React from 'react';
+import AddProducts from '../../components/AddProducts/index.js'
 
 function Home() {
-  return <div />;
+  return <AddProducts />;
+
 }
 
 export default Home;
