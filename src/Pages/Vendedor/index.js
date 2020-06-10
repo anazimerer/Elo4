@@ -48,7 +48,7 @@ function Vendedor() {
         .catch(error => {
           console.log(error)
         })
-    })
+    },[])
 
     async function deleteProduto(id) {
       try{
