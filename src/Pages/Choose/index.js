@@ -1,38 +1,36 @@
 import React from 'react';
 
-import {Link} from 'react-router-dom'
+import Home from "../Home"
 
+import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
-import { Container, HeaderDiv, MainDiv, FooterDiv, BackgroundImage, Logo  } from './styles';
+import { Container, MainDiv, BackgroundImage, } from './styles';
 import Crafting from "../../assets/images/Crafting.jpg"
-import elo4 from "../../assets/images/elo4.png"
 
 function Choose() {
   const [role, setRole] = React.useState(
     localStorage.getItem('role') || ''
   );
 
-  React.useEffect(() => {
-    switch(role)
-    {
-      case "BUYER" : 
-        //go to other page;
-        break;
-      case "SELLER" : 
-        //go to other page;
-        break;
-      default:
-        //go to other page;
-        break;
-    }
-  }, []);
+  switch(role)
+  {
+    case "BUYER" : 
+      console.log(role);
+      return (<Home/>); 
+    case "SELLER" : 
+      console.log(role);
+      return (<Home/>); 
+    default:
+      console.log("stay");
+      break;
+  }
 
   const onSetRoleEvent = (roleClicked) => {
     localStorage.setItem('role', roleClicked);
     setRole(roleClicked);
   }
-  
+
   return (
     <Container>
       <BackgroundImage src={Crafting}/>
