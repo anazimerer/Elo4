@@ -1,33 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import { 
     Grid, 
     Button,
     makeStyles,
+    TextField,
+    Container,
 }
 from '@material-ui/core';
 
 import api from '../../service/api';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      marginTop: 25,
+    },
+    textField: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+    },
     margin: {
-      margin: theme.spacing(1),
-    },
-    extendedIcon: {
-      marginRight: theme.spacing(1),
-    },
+        marginLeft: theme.spacing(2),
+        marginTop: 5,
+    }
   }));
-
 
 export default function AddProducts () {
     
-    const [name, setName] = useState();
-    const [description, setDescription] = useState();
-    const [price, setPrice] = useState();
-    const [paymentMethod, setPaymentMethod] = useState();
-    const [category, setCategory] = useState();
-    const [photos, setPhotos] = useState();
-    const [installments, setInstallments] = useState();
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [category, setCategory] = useState('');
+    const [photos, setPhotos] = useState('');
+    const [installments, setInstallments] = useState('');
+
+    const ClearAll = () =>{
+
+        setName('')
+        setDescription('');
+        setPrice('')
+        setPaymentMethod('');
+        setCategory('');
+        setPhotos('');
+        setInstallments('');
+    }
 
     const CreateProduct = () => {
         const body = {
@@ -43,81 +61,97 @@ export default function AddProducts () {
         api.post('', body,)
           .then(() => {
             window.alert('Produto cadastrado com sucesso');
+            ClearAll();
           }).catch(error => {
               window.alert('Erro ao cadastrar produto');
+              ClearAll();
           });}
 
           const classes = useStyles();
-          
+
     return(
-            <Grid
-                container spacing={2}
-                direction="column"
-                justify="space-evenly"
-                alignItems="center"
-            >
+        <Container >
+            <form className={classes.root}>
                 <Grid item xs={12}>
-                <input type="text" value={name}
-                    placeholder="Nome do produto"
-                    onChange={ (e) => setName(e.target.value) }
-                />
+                    <TextField value={name}
+                        fullWidth
+                        margin="dense"
+                        style={{ margin: 10 }}
+                        placeholder="Nome do produto"
+                        onChange={ (e) => setName(e.target.value) }
+                    />
                 </Grid>
 
                 <Grid item xs={12}>
-                <input type="text" value={description}
-                    placeholder="Descrição do produto"
-                    onChange={ (e) => setDescription(e.target.value) }
-                />
+                    <TextField value={description}
+                        fullWidth
+                        style={{ margin: 10 }}
+                        placeholder="Descrição do produto"
+                        onChange={ (e) => setDescription(e.target.value) }
+                    />
                 </Grid>
 
                 <Grid item xs={12}>
-                <input type="text" value={price}
-                    placeholder="Preço do produto"
-                    onChange={ (e) => setPrice(e.target.value) }
-                />
+                    <TextField value={price}
+                        fullWidth
+                        style={{ margin: 10 }}
+                        placeholder="Preço do produto"
+                        onChange={ (e) => setPrice(e.target.value) }
+                    />
                 </Grid>
 
                 <Grid item xs={12}>
-                <input type="text" value={paymentMethod}
-                    placeholder="Forma de pagamento"
-                    onChange={ (e) => setPaymentMethod(e.target.value) }
-                />
+                    <TextField value={paymentMethod}
+                        fullWidth
+                        style={{ margin: 10 }}
+                        placeholder="Forma de pagamento"
+                        onChange={ (e) => setPaymentMethod(e.target.value) }
+                    />
                 </Grid>
 
                 <Grid item xs={12}>
-                <input type="text" value={category}
-                    placeholder="Categoria do produto"
-                    onChange={ (e) => setCategory(e.target.value) }
-                />
+                    <TextField value={category}
+                        fullWidth
+                        style={{ margin: 10 }}
+                        placeholder="Categoria do produto"
+                        onChange={ (e) => setCategory(e.target.value) }
+                    />
                 </Grid>
 
                 <Grid item xs={12}>
-                <input type="text" value={photos}
-                    placeholder="URL da foto do produto"
-                    onChange={ (e) => setPhotos(e.target.value) }
-                />
+                    <TextField value={photos}
+                        fullWidth
+                        style={{ margin: 10 }}
+                        placeholder="URL da foto do produto"
+                        onChange={ (e) => setPhotos(e.target.value) }
+                    />
                 </Grid>
-                
+            
                 <Grid item xs={12}>
-                    <input type="text" value={installments}
+                    <TextField value={installments}
+                        fullWidth
+                        style={{ margin: 10 }}
                         placeholder="Forma de parcelamento"
                         onChange={ (e) => setInstallments(e.target.value) }
                     />
                 </Grid>
 
-                <Grid item xs={12}>
+                <Grid container
+                    direction="row"
+                    justify="flex-end"
+                    alignItems="flex-end"
+                >
+                    <Button variant="outlined" color="secondary" size="small"
+                        onClick={ClearAll}> 
+                            Limpar
+                    </Button>
+
                     <Button variant="contained" color="primary" size="small"
                         onClick={CreateProduct} className={classes.margin}>
                             Criar Produto
                     </Button>
-
-                    <Button variant="outlined" color="secondary" size="small"
-                        onClick={CreateProduct}>
-                            Limpar
-                    </Button>
-
                 </Grid>
-
-            </Grid>
+            </form>
+        </Container>
     )
 }
