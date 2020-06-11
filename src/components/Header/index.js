@@ -16,7 +16,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   color: {
-    background: 'white',
+    background: 'rgba(255,255,255,0.8)',
+    '&:hover': {
+      background: '#fff',
+    },
   },
   button: {
     background: '#1DA89A',

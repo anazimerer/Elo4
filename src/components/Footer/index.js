@@ -1,60 +1,90 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
-const useStyle = makeStyles({
-  table: {
-    minWidth: 650,
+import Grid from '@material-ui/core/Grid';
+import Card from '../../assets/images/cards.png';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexGrow: 1,
   },
-});
+  footer_link: {
+    marginLeft: '80px',
+    marginTop: '20px',
+  },
+  footer_nav: {
+    display: 'flex',
+    flexDirection: 'collumn',
+    width: '300px',
+    fontSize: '15px',
+  },
+  footer_span: {
+    fontSize: '24px',
+    lineHeight: '27px',
+    fontWeight: 'bold',
+  },
+  footer_ul: {
+    listStyle: 'none',
+    marginRight: '90px',
+  },
+  footer_li: {
+    color: '#797979',
+    display: 'lis-Item',
+    fontSize: '16px',
+    lineHeight: '20px',
+    marginTop: '9px',
+  },
+}));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+export default function Footer() {
+  const classes = useStyles();
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-function Footer() {
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div className={classes.root}>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <div className={classes.footer_link}>
+            <span className={classes.footer_span}>Sobre o Elo</span>
+            <nav className={classes.footer_nav}>
+              <ul className={classes.footer_ul}>
+                <li className={classes.footer_li}>Quem Somos</li>
+                <li className={classes.footer_li}>Pessoas e Lojas</li>
+                <li className={classes.footer_li}>Produtos fora de serie</li>
+                <li className={classes.footer_li}>Carreira</li>
+              </ul>
+            </nav>
+          </div>
+        </Grid>
+        <Grid item xs={4}>
+          <div className={classes.footer_link}>
+            <span className={classes.footer_span}>Meios de pagamento</span>
+            <nav className={classes.footer_nav}>
+              <ul className={classes.footer_ul}>
+                <li className={classes.footer_li}>
+                  <img src={Card} />
+                </li>
+
+                <li className={classes.footer_li}>
+                  Parcelado em até 12x sem juros
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </Grid>
+        <Grid item xs={4}>
+          <div className={classes.footer_link}>
+            <span className={classes.footer_span}>Saiba Mais</span>
+            <nav className={classes.footer_nav}>
+              <ul className={classes.footer_ul}>
+                <li className={classes.footer_li}>Como Coprar</li>
+                <li className={classes.footer_li}>Pagamento Seguro</li>
+                <li className={classes.footer_li}>Central de atendimento</li>
+                <li className={classes.footer_li}>Quero abrir minha loja</li>
+              </ul>
+            </nav>
+          </div>
+        </Grid>
+      </Grid>
+    </div>
   );
 }
-
-export default Footer;
