@@ -5,7 +5,7 @@ import Home from './Pages/Home';
 
 import Choose from './Pages/Choose';
 import Product from './Pages/Solo_Product';
-
+import AddProducts from './components/AddProducts'
 import Vendedor from './Pages/Vendedor';
 
 export default function Routes() {
@@ -16,7 +16,8 @@ export default function Routes() {
       <Route path="/Choose" component={Choose} />
       <Route path="/Product" component={Product} />
 
-      <Route path="/vendedor" exact component={Vendedor} />
+      <Route path='/addProduct' component={AddProducts} />
+      <Route path='/vendedor' component={Vendedor} />
     </Switch>
   );
 }
