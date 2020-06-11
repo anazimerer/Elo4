@@ -38,22 +38,19 @@ style.js
 
 **Arquivo que fica todas as rotas da aplicação**
 
-[React Icons](https://react-icons.github.io/react-icons/)
-Biblioteca para icones, dessa forma podemos deixar a aplicação mais leve
-para usa-la é bem simples
-
-Entre no site do React Icons olhe qual icone quer, depois só dar um:
+[Materia Ui Icons](https://material-ui.com/)
+Biblioteca para icones, como temos que usar o Material UI então para padronizar tudo e deixar a aplicação mais leve, coloquei o material UI Icons
 
 ```lang-js
-import { FaBeer } from 'react-icons/fa';
+import MenuIcon from '@material-ui/icons/Menu';
 ```
 
-**/fa -> foi pego da pasta fa, existe inumeras pastas, basta olha a doc deles.**
+**/fa -> Foi pego o ícone Menu dos icons**
 
 depois de importado só usar
 
 exemplo:
 
 ```lang-js
-<h3> Lets go for a <FaBeer />? </h3>
+<MenuIcon />
 ```

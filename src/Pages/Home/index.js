@@ -10,6 +10,9 @@ import Grid from '@material-ui/core/Grid';
 
 // import { Container } from './styles';
 
+import React from 'react';
+import AddProducts from '../../components/AddProducts/index.js'
+
 const useStyles = makeStyles((theme) => ({
 	root: {
 	  flexGrow: 1,
@@ -101,6 +104,7 @@ const Grid1 = styled.div`
 //////////////
 
 function Home() {
+
 	const [products, setProducts] = useState([]);
 	const classes = useStyles();
 	
@@ -242,6 +246,8 @@ function Home() {
 		</section>
   	  </MainDiv>
   	);
+  return <AddProducts />;
+
 
 }
 
