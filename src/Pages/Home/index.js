@@ -1,29 +1,8 @@
 import React, {useEffect, useState}from 'react';
 import styled from 'styled-components';
-import Advertising01 from '../../assets/images/advertising-1.png';
-import Advertising02 from '../../assets/images/advertising-2.png';
 import api from '../../service/api';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-
-import Grid from '@material-ui/core/Grid';
-
-// import { Container } from './styles';
-
-import React from 'react';
-import AddProducts from '../../components/AddProducts/index.js'
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-	  flexGrow: 1,
-	},
-	paper: {
-	  padding: theme.spacing(2),
-	  textAlign: 'center',
-	  color: theme.palette.text.secondary,
-	},
-}));
-
+import AddProducts from '../../components/AddProducts/index.js';
+import Solo_Product from '../../Pages/Solo_Product/index.js';
 
 const MainDiv= styled.div`
 	display: flex;
@@ -31,12 +10,17 @@ const MainDiv= styled.div`
 	justify-content: center;
 	width: 100%;
 	height: 100%;
-	
+	section{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}	
 `
 const Advertising = styled.img`
 	width: 70vw;
 	height: 200px;
-	margin: 10px ;
+	margin: 10px;
+	margin-top: 70px;
 `
 const Section = styled.section`
 	display: flex;
@@ -44,15 +28,15 @@ const Section = styled.section`
 	justify-content: center;
 	text-align: center;	
 	margin-bottom: 10px;
-	margin: 2px;
-	width: 100%;
+	margin: auto;
+	width: 80%;
 	height: 50vh;
 `
 const SectionName = styled.div`	
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	margin-left: 15px;
+	margin-left: 145px;
 	margin-top: 15px;
-	padding: 5px;
+	padding: 5px;	
 	h5{		
 		font-style: normal;
 		font-weight: bold;
@@ -64,7 +48,21 @@ const SectionName = styled.div`
 		font-size: 14px;
 		line-height: 16px;	
 	}
-
+`
+const ProductPrice = styled.span`
+	background-color: yellowgreen;
+	width: 3.5vw;
+	height: 3vh;
+	position: absolute;
+	:first-of-type{
+		position: absolute;
+		background-color: purple;
+		height: 3vh;
+	}
+	:last-of-type{
+		height: 3vh;
+		background-color: hotpink;
+	}
 `
 ////////////////////////////////
 const Grid4 = styled.div`
@@ -98,16 +96,13 @@ const Grid1 = styled.div`
 		opacity: 0.85;
 	}img:hover{
 		opacity: 0.95;
-	}
-	
+	}	
 `
 //////////////
-
 function Home() {
-
 	const [products, setProducts] = useState([]);
-	const classes = useStyles();
-	
+	const [clickedProduct, setClickedProduct] = useState();
+
 	useEffect(()=>{
 		api
 			.get('')
@@ -120,7 +115,6 @@ function Home() {
 	}, []);
 	
 	const imageListSection1 = products.filter((product => {
-		console.log(product.category)
 			if (product.category==='Joias'){	
 				return product						
 			}else{
@@ -129,7 +123,6 @@ function Home() {
 		})							
 	)
 	const imageListSection2 = products.filter((product => {
-		console.log(product.category)
 			if (product.category==='1'){	
 				return product						
 			}else{
@@ -138,7 +131,6 @@ function Home() {
 		})							
 	)
 	const imageListSection3 = products.filter((product => {
-		console.log(product.category)
 			if (product.category==='Carro'){	
 				return product				
 			}else{
@@ -149,23 +141,36 @@ function Home() {
 
 	const imageList1 = imageListSection1.map((item => {
 		return (
-		<img src={item.photos}/>
+			<>			
+				<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
+				<ProductPrice>{item.price}</ProductPrice>				
+			</>
 		);
 	}))
 
 	const imageList2 = imageListSection2.map((item => {
 		return (			
-			<img src={item.photos}/>			
+			<>			
+				<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
+				<ProductPrice>{item.price}</ProductPrice>				
+			</>		
 		);
 	}))
 
 	const imageList3 = imageListSection3.map((item => {
 		return (
-		<img src={item.photos}/> 
+			<>			
+				<img src={item.photos} onClick={() => {OnClickImageProduct(item.price)}}/>
+				<ProductPrice>{item.price}</ProductPrice>				
+			</>
 		);
 	}))
-	
 
+	function OnClickImageProduct(product){
+		setClickedProduct(product)
+		console.log(clickedProduct)
+	}
+	
   	return (
   	  <MainDiv>
 		<section>
@@ -179,8 +184,8 @@ function Home() {
 			<h5>Jóias</h5>
 			<p>descrição da seção</p>
 		</SectionName>
-		<Section  className={classes.root} >
-			<Grid4 className={classes.paper}>
+		<Section>
+			<Grid4>
 				{imageList1[0]}
 				{imageList1[4]}
 				{imageList1[2]}
@@ -189,7 +194,7 @@ function Home() {
 			<Grid1>
 				{imageList1[2]}
 			</Grid1>	
-			<Grid4 className={classes.paper} >
+			<Grid4>
 				{imageList1[8]}
 				{imageList1[6]}
 				{imageList1[4]}
@@ -201,11 +206,11 @@ function Home() {
 			<h5>Paisagens</h5>
 			<p>descrição da seção</p>
 		</SectionName>	
-		<Section  className={classes.root} >
+		<Section>
 			<Grid1>
 				{imageList2[0]}
 			</Grid1>	
-			<Grid4 className={classes.paper} >
+			<Grid4>
 				{imageList2[0]}
 				{imageList2[0]}
 				{imageList2[0]}
@@ -220,8 +225,8 @@ function Home() {
 			<h5>Carros</h5>
 			<p>descrição da seção</p>
 		</SectionName>
-		<Section  className={classes.root} >
-			<Grid4 className={classes.paper}>
+		<Section>
+			<Grid4>
 				{imageList3[0]}
 				{imageList3[0]}
 				{imageList3[0]}
@@ -230,7 +235,7 @@ function Home() {
 			<Grid1>
 				{imageList3[0]}
 			</Grid1>			
-			<Grid4 className={classes.paper}>
+			<Grid4>
 				{imageList3[0]}
 				{imageList3[0]}
 				{imageList3[0]}
@@ -246,9 +251,13 @@ function Home() {
 		</section>
   	  </MainDiv>
   	);
-  return <AddProducts />;
-
-
+  return (
+	  		<AddProducts />,
+			<Solo_Product
+			clickedProduct={clickedProduct}
+			/>
+  		)
+	
 }
 
 export default Home;
