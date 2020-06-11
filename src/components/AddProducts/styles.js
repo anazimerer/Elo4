@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 
-export const AddProductContainer = styled.div `
+export const Formulario = styled.form`
 
-    width: 100vw;
-    background-color: lightsalmon;
-    display: flex;
-`
-export const AddProductInputContainer = styled.div `
-
-   width: 80vw;
-   display: flex;
-   flex-flow: column;
-   background-color: green;
+    width: auto;
 `
