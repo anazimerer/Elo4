@@ -33,7 +33,7 @@ const MainDiv= styled.div`
 const Advertising = styled.img`
 	width: 70vw;
 	height: 200px;
-	margin: 10px;
+	margin: 10px ;
 `
 const Section = styled.section`
 	display: flex;
@@ -41,12 +41,15 @@ const Section = styled.section`
 	justify-content: center;
 	text-align: center;	
 	margin-bottom: 10px;
+	margin: 2px;
 	width: 100%;
 	height: 50vh;
 `
 const SectionName = styled.div`	
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	margin-left: 15px;
+	margin-top: 15px;
+	padding: 5px;
 	h5{		
 		font-style: normal;
 		font-weight: bold;
@@ -62,30 +65,38 @@ const SectionName = styled.div`
 `
 ////////////////////////////////
 const Grid4 = styled.div`
-	width: 50%;
+	width: 100%;
 	height: 100%;	
+	padding: 0;
+	margin-bottom: 10px;
 	img{
 		border-radius: 7px;
 		border: 1px grey;
 		background-color: #D8D8D8;
 		width: 45%;
-		height: 50%;
-		margin:1px 1px;
+		height: 48%;
+		margin: 5px 5px;
+		opacity: 0.85;
+	}img:hover{
+		opacity: 0.95;
 	}
 `
 const Grid1 = styled.div`	
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	width: 50%;
-	height: 100%;
+	width: 100%;
+	height: 107%;
 	img{
 		border-radius: 7px;
 		border: 0.5px grey;	
 		background-color: #D8D8D8;
-		width: 90%;
+		width: 100%;
 		height: 95%;
+		opacity: 0.85;
+	}img:hover{
+		opacity: 0.95;
 	}
+	
 `
 //////////////
 
@@ -97,11 +108,10 @@ function Home() {
 		api
 			.get('')
 			.then((response)=>{				
-				//ndow.alert('Dados encontrados')
 				setProducts(...products, response.data.products)
 			})
 			.catch((err)=>{
-				window.alert(`Dados não encontrados. Erro: ${err}`)
+				window.alert(`Dados não encontrados. ${err}`)
 			})
 	}, []);
 	
@@ -126,29 +136,26 @@ function Home() {
 	const imageListSection3 = products.filter((product => {
 		console.log(product.category)
 			if (product.category==='Carro'){	
-				return product						
+				return product				
 			}else{
 				return false
 			}
 		})							
 	)
 
-	const imageList = imageListSection1.map((item => {
-		console.log('teste' +item.photos)
+	const imageList1 = imageListSection1.map((item => {
 		return (
 		<img src={item.photos}/>
 		);
 	}))
 
 	const imageList2 = imageListSection2.map((item => {
-		console.log('teste' +item.photos)
-		return (
-		<img src={item.photos}/>
+		return (			
+			<img src={item.photos}/>			
 		);
 	}))
 
 	const imageList3 = imageListSection3.map((item => {
-		console.log('teste' +item.photos)
 		return (
 		<img src={item.photos}/> 
 		);
@@ -170,19 +177,19 @@ function Home() {
 		</SectionName>
 		<Section  className={classes.root} >
 			<Grid4 className={classes.paper}>
-				{imageList[0]}
-				{imageList[0]}
-				{imageList[0]}
-				{imageList[0]}
+				{imageList1[0]}
+				{imageList1[0]}
+				{imageList1[0]}
+				{imageList1[0]}
 			</Grid4>
 			<Grid1>
-				{imageList[0]}
+				{imageList1[0]}
 			</Grid1>	
 			<Grid4 className={classes.paper} >
-				{imageList[0]}
-				{imageList[0]}
-				{imageList[0]}
-				{imageList[0]}
+				{imageList1[0]}
+				{imageList1[0]}
+				{imageList1[0]}
+				{imageList1[0]}
 			</Grid4>		
 		</Section>
 		
