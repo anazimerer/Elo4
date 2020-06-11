@@ -252,10 +252,8 @@ function Home() {
   	  </MainDiv>
   	);
   return (
-	  		<AddProducts />,
-			<Solo_Product
-			clickedProduct={clickedProduct}
-			/>
+	  		<AddProducts product={products}/>,
+			<Solo_Product clickedProduct={clickedProduct}/>
   		)
 	
 }
