@@ -117,7 +117,7 @@ function Home() {
 	
 	const imageListSection1 = products.filter((product => {
 		console.log(product.category)
-			if (product.category==='Anel'){	
+			if (product.category==='Joias'){	
 				return product						
 			}else{
 				return false
@@ -178,17 +178,17 @@ function Home() {
 		<Section  className={classes.root} >
 			<Grid4 className={classes.paper}>
 				{imageList1[0]}
-				{imageList1[0]}
-				{imageList1[0]}
-				{imageList1[0]}
+				{imageList1[4]}
+				{imageList1[2]}
+				{imageList1[3]}
 			</Grid4>
 			<Grid1>
-				{imageList1[0]}
+				{imageList1[2]}
 			</Grid1>	
 			<Grid4 className={classes.paper} >
-				{imageList1[0]}
-				{imageList1[0]}
-				{imageList1[0]}
+				{imageList1[8]}
+				{imageList1[6]}
+				{imageList1[4]}
 				{imageList1[0]}
 			</Grid4>		
 		</Section>
