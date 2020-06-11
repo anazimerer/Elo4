@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Formulario } from './styles';
 import { 
     Grid, 
     Button,
@@ -70,8 +71,8 @@ export default function AddProducts () {
           const classes = useStyles();
 
     return(
-        <Container >
-            <form className={classes.root}>
+        <Container maxWidth="sm">
+            <Formulario className={classes.root}>
                 <Grid item xs={12}>
                     <TextField value={name}
                         fullWidth
@@ -157,7 +158,7 @@ export default function AddProducts () {
                             Criar Produto
                     </Button>
                 </Grid>
-            </form>
+            </Formulario>
         </Container>
     )
 }
