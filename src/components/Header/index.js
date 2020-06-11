@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -92,7 +92,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const [search, setSearch] = useState('');
   const classes = useStyles();
+
+  const storage = localStorage.getItem('pesquisa');
+
+  useEffect(() => {
+    if (storage) {
+      localStorage.setItem('pesquisa', JSON.stringify(search));
+    }
+  }, []);
+
+  function handleSearchProducts(e) {
+    setSearch(e.target.value);
+    localStorage.setItem('pesquisa', JSON.stringify(e.target.value));
+  }
 
   return (
     <div className={classes.color}>
@@ -111,6 +125,7 @@ export default function PrimarySearchAppBar() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              onChange={handleSearchProducts}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
