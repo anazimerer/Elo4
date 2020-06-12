@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import Carrinho from './Pages/Carrinho/index.js';
 
-
 import Home from './Pages/Home';
 
 import Choose from './Pages/Choose';
@@ -16,15 +15,14 @@ import Buy from './Pages/Compra';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/Carrinho" exact component={Carrinho} />
-      <Route path="/Choose" component={Choose} />
-      <Route path="/Buy" component={Buy} />
+      <Route path="/" exact component={Choose} />
+      <Route path="/inicio" component={Home} />
+      <Route path="/carrinho" component={Carrinho} />
+      <Route path="/buy" component={Buy} />
 
       <Route path="/Product:id" render={(child) => <Product {...child} />} />
-      <Route path="/Buy" component={Compra} />
-    
-      <Route path="/addProduct" component={AddProducts} />
+
+      <Route path="/AddProducts" component={AddProducts} />
       <Route path="/vendedor" component={Vendedor} />
     </Switch>
   );

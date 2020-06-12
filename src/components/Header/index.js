@@ -11,6 +11,8 @@ import Elo4 from '../../assets/images/Icon.png';
 import Bar from '../../assets/images/Vector.png';
 import { NavMenu } from './styles';
 
+import Home from '../../Pages/Choose';
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -108,6 +110,11 @@ export default function PrimarySearchAppBar() {
     localStorage.setItem('pesquisa', JSON.stringify(e.target.value));
   }
 
+  function resetUser() {
+    localStorage.setItem('role', '');
+    return <Home />;
+  }
+
   return (
     <div className={classes.color}>
       <AppBar className={classes.color}>
@@ -129,14 +136,16 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <NavMenu>Moças</NavMenu>
-          <NavMenu>Rapazes</NavMenu>
-          <NavMenu>Kids</NavMenu>
-          <NavMenu>Casa</NavMenu>
+          <NavMenu to="#">Moças</NavMenu>
+          <NavMenu to="#">Rapazes</NavMenu>
+          <NavMenu to="#">Kids</NavMenu>
+          <NavMenu to="#">Casa</NavMenu>
           <img src={Bar} />
 
           <HelpOutlineIcon className={classes.icon} />
-          <NavMenu>Entrar</NavMenu>
+          <NavMenu to="/" onClick={resetUser}>
+            Entrar
+          </NavMenu>
           <Button className={classes.button}>Comprar</Button>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}></div>
