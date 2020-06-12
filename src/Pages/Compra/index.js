@@ -107,7 +107,7 @@ function Compra() {
         <SubMenu>
           <ContainerSup></ContainerSup>
           <Link to="/">
-            <Button className={classes.ratioLeft} variant="contained" color="primary" fullWidth="true" onClick={limparLocalStorage}>Quero Comprar</Button>
+            <Button className={classes.ratioLeft} variant="contained" color="primary" onClick={limparLocalStorage}>Home</Button>
           </Link>
         </SubMenu>
         <Report>
