@@ -22,7 +22,7 @@ export default function Routes() {
 
       <Route path="/Product:id" render={(child) => <Product {...child} />} />
 
-      <Route path="/addProduct" component={AddProducts} />
+      <Route path="/AddProducts" component={AddProducts} />
       <Route path="/vendedor" component={Vendedor} />
     </Switch>
   );
