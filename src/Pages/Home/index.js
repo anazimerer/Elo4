@@ -54,6 +54,9 @@ const ProductPrice = styled.span`
 	width: 3.5vw;
 	height: 3vh;
 	position: absolute;
+	border-radius:7px;
+	font-size: 0.9em;
+	vertical-align: middle;
 	:first-of-type{
 		position: absolute;
 		background-color: purple;
@@ -122,7 +125,7 @@ function Home() {
 		})							
 	)
 	const imageListSection2 = products.filter((product => {
-			if (product.category==='1'){	
+			if (product.category==='Decoração'){	
 				return product						
 			}else{
 				return false
@@ -130,7 +133,7 @@ function Home() {
 		})							
 	)
 	const imageListSection3 = products.filter((product => {
-			if (product.category==='Carro'){	
+			if (product.category==='Inverno'){	
 				return product				
 			}else{
 				return false
@@ -142,7 +145,7 @@ function Home() {
 		return (
 			<>			
 				<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
-				<ProductPrice>{item.price}</ProductPrice>				
+				<ProductPrice>R${item.price}</ProductPrice>				
 			</>
 		);
 	}))
@@ -151,7 +154,7 @@ function Home() {
 		return (			
 			<>			
 				<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
-				<ProductPrice>{item.price}</ProductPrice>				
+				<ProductPrice>R${item.price}</ProductPrice>				
 			</>		
 		);
 	}))
@@ -160,7 +163,7 @@ function Home() {
 		return (
 			<>			
 				<img src={item.photos} onClick={() => {OnClickImageProduct(item.price)}}/>
-				<ProductPrice>{item.price}</ProductPrice>				
+				<ProductPrice>R${item.price}</ProductPrice>				
 			</>
 		);
 	}))
@@ -186,8 +189,8 @@ function Home() {
 		</section>
 
 		<SectionName>
-			<h5>Jóias</h5>
-			<p>descrição da seção</p>
+			<h5>Bijouterias</h5>
+			<p>diversos modelos!</p>
 		</SectionName>
 		<Section>
 			<Grid4>
@@ -208,43 +211,43 @@ function Home() {
 		</Section>
 		
 		<SectionName>
-			<h5>Paisagens</h5>
-			<p>descrição da seção</p>
+			<h5>Decoração</h5>
+			<p>pra sua casa!</p>
 		</SectionName>	
 		<Section>
 			<Grid1>
-				{imageList2[0]}
+				{imageList2[8]}
 			</Grid1>	
 			<Grid4>
-				{imageList2[0]}
-				{imageList2[0]}
-				{imageList2[0]}
-				{imageList2[0]}
+				{imageList2[2]}
+				{imageList2[3]}
+				{imageList2[4]}
+				{imageList2[5]}
 			</Grid4>
 			<Grid1>
-				{imageList2[0]}
+				{imageList2[6]}
 			</Grid1>			
 		</Section>
 
 		<SectionName>
-			<h5>Carros</h5>
-			<p>descrição da seção</p>
+			<h5>Inverno</h5>
+			<p>roupas quentinhas pra estação!</p>
 		</SectionName>
 		<Section>
 			<Grid4>
 				{imageList3[0]}
-				{imageList3[0]}
-				{imageList3[0]}
-				{imageList3[0]}
+				{imageList3[1]}
+				{imageList3[2]}
+				{imageList3[3]}
 			</Grid4>
 			<Grid1>
-				{imageList3[0]}
+				{imageList3[4]}
 			</Grid1>			
 			<Grid4>
-				{imageList3[0]}
-				{imageList3[0]}
-				{imageList3[0]}
-				{imageList3[0]}
+				{imageList3[5]}
+				{imageList3[6]}
+				{imageList3[7]}
+				{imageList3[8]}
 			</Grid4>			
 		</Section>
 		
