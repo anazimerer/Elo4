@@ -183,7 +183,6 @@ function Home() {
 		localStorage.setItem("cart", JSON.stringify(product))
 		const productString=localStorage.getItem('cart')	
 		const productObject= JSON.parse(productString)
-		console.log(productObject.price)
 	}
 	
 	//if (openSoloProduct===true){
