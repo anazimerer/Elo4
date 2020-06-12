@@ -2,7 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Carrinho from './Pages/Carrinho/index.js';
-import Home from './Pages/Home'
+
+import Home from './Pages/Home';
+
 import Choose from './Pages/Choose';
 import Product from './Pages/Solo_Product';
 import AddProducts from './components/AddProducts';
@@ -13,7 +15,7 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-
+      <Route path="/Carrinho" exact component={Carrinho} />
       <Route path="/Choose" component={Choose} />
       <Route path="/Buy" component={Buy} />
 

@@ -5,6 +5,7 @@ const DivRoot = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 80px;
 `
 
 const SectionCart = styled.section`
@@ -91,13 +92,30 @@ function Carrinho() {
   const [preco1,setpreco1] = useState(23)
   const [preco2,setpreco2] = useState(10)
   const [total,setTotal]=useState()
+  const [cart, setCart]=useState([])
+  const [installments, setInstallments] = useState([]);
+  const [paymentMethod, setPaymentMethod] = useState([]);
   
+  useEffect(()=>{
+    if(JSON.parse(localStorage.getItem("cart") !== null)){
+      setCart(localStorage.getItem("cart"));
+    }
+    console.log(cart)
+  }, []);
+  
+  const installmentsSetItem = () => {
+	localStorage.setItem("installments", JSON.stringify(installments))
+	console.log('prestações')
+  }
+
+  const paymentMethodSetItem = () => {
+	localStorage.setItem("paymentMethod", JSON.stringify(paymentMethod))
+	console.log('metodo')
+  }
   //function AddCartValues (){
   //	setTotal(total+preco1+preco2)
   //}
-
-
-  //const listOfProducts = products.map((product)=>{
+  //const listOfProducts = cart.map((product)=>{
   //  return(
   //      <ProductCart>
   //      	<DivPhoto>
@@ -170,6 +188,10 @@ function Carrinho() {
         	  	<div>Cartão de Crédito</div>
         	  	<div>Boleto bancario</div>
         	</section>
+			<button onClick={() => {
+         			 paymentMethodSetItem();
+          			installmentsSetItem();}}
+				>COMPRAR</button>
         </SectionPayment>
 
     </DivRoot>
