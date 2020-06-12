@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Carrinho from './Pages/Carrinho/index.js';
-
+import Home from './Pages/Home';
 import Choose from './Pages/Choose';
 import Product from './Pages/Solo_Product';
 import AddProducts from './components/AddProducts';

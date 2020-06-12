@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import api from '../../service/api';
 import AddProducts from '../../components/AddProducts/index.js';
 import Solo_Product from '../../Pages/Solo_Product/index.js';
+import {Link} from 'react-router-dom'
 
 const MainDiv= styled.div`
 	display: flex;
@@ -146,9 +147,11 @@ function Home() {
 
 	const imageList1 = imageListSection1.map((item => {
 		return (
-			<>			
-				<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
-				<ProductPrice>R${item.price}</ProductPrice>				
+			<>
+				<Link to="/Payment">	
+					<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
+					<ProductPrice>R${item.price}</ProductPrice>	
+				</Link>				
 			</>
 		);
 	}))
@@ -156,24 +159,31 @@ function Home() {
 	const imageList2 = imageListSection2.map((item => {
 		return (			
 			<>			
-				<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
-				<ProductPrice>R${item.price}</ProductPrice>				
+				<Link to="/Payment">	
+					<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
+					<ProductPrice>R${item.price}</ProductPrice>	
+				</Link>					
 			</>		
 		);
 	}))
 
 	const imageList3 = imageListSection3.map((item => {
 		return (
-			<>			
-				<img src={item.photos} onClick={() => {OnClickImageProduct(item.price)}}/>
-				<ProductPrice>R${item.price}</ProductPrice>				
+			<>	
+				<Link to="/Payment">	
+					<img src={item.photos} onClick={() => {OnClickImageProduct(item)}}/>
+					<ProductPrice>R${item.price}</ProductPrice>	
+				</Link>				
 			</>
 		);
 	}))
 
 	function OnClickImageProduct(product){
 		setClickedProduct(product)
-		setClickedProduct(true)
+		localStorage.setItem("cart", JSON.stringify(product))
+		const productString=localStorage.getItem('cart')	
+		const productObject= JSON.parse(productString)
+		console.log(productObject.price)
 	}
 	
 	//if (openSoloProduct===true){
@@ -197,13 +207,13 @@ function Home() {
 		</SectionName>
 		<Section>
 			<Grid4>
-				{imageList1[0]}
-				{imageList1[0]}
-				{imageList1[0]}
-				{imageList1[0]}
+				{imageList1[2]}
+				{imageList1[1]}
+				{imageList1[3]}
+				{imageList1[4]}
 			</Grid4>
 			<Grid1>
-				{imageList1[0]}
+				{imageList1[5]}
 			</Grid1>	
 
 			<Grid4>
