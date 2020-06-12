@@ -5,9 +5,9 @@ import Home from './Pages/Home';
 
 import Choose from './Pages/Choose';
 import Product from './Pages/Solo_Product';
-import AddProducts from './components/AddProducts'
+import AddProducts from './components/AddProducts';
 import Vendedor from './Pages/Vendedor';
-import Compra from './Pages/Compra'
+import Buy from './Pages/Compra'
 
 export default function Routes() {
   return (
@@ -15,8 +15,10 @@ export default function Routes() {
       <Route path="/" exact component={Home} />
 
       <Route path="/Choose" component={Choose} />
-      <Route path="/Product" component={Product} />
-      <Route path="/buy" component={Compra} />
+      <Route path="/Buy" component={Compra} />
+
+      <Route path="/Product:id" render={(child) => <Product {...child} />} />
+    
       <Route path="/addProduct" component={AddProducts} />
       <Route path="/vendedor" component={Vendedor} />
     </Switch>
