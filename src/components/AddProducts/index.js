@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
 import { Formulario } from './styles';
-import { 
-    Grid, 
-    Button,
-    makeStyles,
-    TextField,
-    Container,
-}
-from '@material-ui/core';
-
 import {
   Grid,
   Button,
@@ -23,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      marginTop: '90px'
+      marginTop: '90px',
     },
     textField: {
       marginLeft: theme.spacing(1),
@@ -174,7 +165,7 @@ export default function AddProducts () {
         </Container>
     )
 }
-
+/*
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -343,3 +334,4 @@ export default function AddProducts() {
     </Container>
   );
 }
+*/

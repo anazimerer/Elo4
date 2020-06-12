@@ -15,6 +15,7 @@ export default function Routes() {
 
       <Route path="/Choose" component={Choose} />
       <Route path="/Product:id" render={(child) => <Product {...child} />} />
+      <Route path="/Product" component={Product}/>
 
       <Route path="/addProduct" component={AddProducts} />
       <Route path="/vendedor" component={Vendedor} />
