@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: '1rem',
     }, 
     ratioLeft: {
-      textAlign: "left", 
+      textAlign: "left",
+      margin: "5px", 
     },
     iconCenter: {
         margin: "0 0 -5 0"
@@ -105,11 +106,11 @@ function Compra() {
       <Container>
         <SubMenu>
           <ContainerSup></ContainerSup>
+          <Link to="/">
+            <Button className={classes.ratioLeft} variant="contained" color="primary" fullWidth="true" onClick={limparLocalStorage}>Quero Comprar</Button>
+          </Link>
         </SubMenu>
         <Report>
-          <Link to="/">
-            <Button variant="contained" color="primary" fullWidth="true" onClick={limparLocalStorage}>Quero Comprar</Button>
-          </Link>
           {products.map((product) => {
             return(
                 <Card className={classes.root}>
