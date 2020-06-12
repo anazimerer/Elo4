@@ -8,7 +8,6 @@ import Product from './Pages/Solo_Product';
 
 import Vendedor from './Pages/Vendedor';
 
-
 export default function Routes() {
   return (
     <Switch>
