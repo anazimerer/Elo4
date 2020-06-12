@@ -17,7 +17,7 @@ import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles'
 
 import { SubMenu, Container, ContainerSup, ContainerInf, Products, Product, Location, SectionAddProduct, ImageCard } from './styles';
-import { Redirect } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,8 +65,8 @@ function Vendedor() {
       history.push('/addProduct');
     }
 
-    const DetailProduct = () => {
-      history.push(`/Product`);
+    const DetailProduct = (id) => {
+      history.push(`/Product/${id}`);
     }
 
 
@@ -92,13 +92,13 @@ function Vendedor() {
           <Product key={product.id}>
             <Card>
               <CardActionArea>
-                <ImageCard src={product.photos} title={product.name} onClick={DetailProduct}/>
+                <ImageCard src={product.photos} title={product.name} onClick={() => DetailProduct(product.id)}/>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
                     {product.name}
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h2">
-                    R$ {parseInt(product.price).toFixed(2)}
+                    R$ {parseFloat(product.price).toFixed(2)}
                   </Typography>
                 </CardContent>
               </CardActionArea>
