@@ -1,7 +1,9 @@
+
 import React, {useEffect, useState}from 'react';
 import styled from 'styled-components';
 //import Advertising01 from '../../assets/images/advertising-1.png';
 //import Advertising02 from '../../assets/images/advertising-2.png';
+
 import api from '../../service/api';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -242,6 +244,7 @@ function Home() {
 		</section>
   	  </MainDiv>
   	);
+
 
 }
 
