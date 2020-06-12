@@ -7,7 +7,6 @@ import {
     TextField,
     Container,
 }
-
 from '@material-ui/core';
 
 import api from '../../service/api';
@@ -16,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      marginTop: '90px'
+      marginTop: '90px',
     },
     textField: {
       marginLeft: theme.spacing(1),
@@ -167,4 +166,3 @@ export default function AddProducts () {
         </Container>
     )
 }
-

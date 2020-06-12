@@ -38,7 +38,7 @@ function Choose() {
         <Link to="/">
           <Button variant="contained" color="primary" size="large" onClick={() => onSetRoleEvent("BUYER")}>Quero Comprar</Button>
         </Link>
-        <Link to="/">
+        <Link to="/Vendedor">
           <Button variant="contained" color="primary" size="large" onClick={() => onSetRoleEvent("SELLER")}>Quero Vender</Button>
         </Link>
       </MainDiv>
