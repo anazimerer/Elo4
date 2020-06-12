@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom'
+
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import ViewWeekIcon from '@material-ui/icons/ViewWeek';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
+
+import Button from '@material-ui/core/Button';
 
 import { SubMenu, Container, ContainerSup } from '../Vendedor/styles';
 import { Report, ReportFinal, ImageCard, TotalH2 } from './style'
@@ -17,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     }, 
     ratioLeft: {
       textAlign: "left", 
+
     },
     iconCenter: {
         margin: "0 0 -5 0"
@@ -95,10 +101,18 @@ function Compra() {
     const valueBuy =  products.reduce((acumulador, product) => 
         acumulador + product.price, 0);
 
+
+    const limparLocalStorage = () => {
+      localStorage.clear()
+    }
+
     return(
       <Container>
         <SubMenu>
           <ContainerSup></ContainerSup>
+          <Link to="/">
+            <Button className={classes.ratioLeft} variant="contained" color="primary" fullWidth="true" onClick={limparLocalStorage}>Quero Comprar</Button>
+          </Link>
         </SubMenu>
         <Report>
           {products.map((product) => {
