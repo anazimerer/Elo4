@@ -104,7 +104,7 @@ const Grid1 = styled.div`
 function Home() {
 	const [products, setProducts] = useState([]);
 	const [clickedProduct, setClickedProduct] = useState();
-	const [openSoloProduct, setOpenSoloProduct] = useState(false);
+	
 
 	useEffect(()=>{
 		api
