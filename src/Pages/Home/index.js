@@ -64,7 +64,6 @@ const ProductPrice = styled.span`
 		background-color: hotpink;
 	}
 `
-////////////////////////////////
 const Grid4 = styled.div`
 	width: 100%;
 	height: 100%;	
@@ -98,7 +97,6 @@ const Grid1 = styled.div`
 		opacity: 0.95;
 	}	
 `
-//////////////
 function Home() {
 	const [products, setProducts] = useState([]);
 	const [clickedProduct, setClickedProduct] = useState();
@@ -177,7 +175,7 @@ function Home() {
 	//}else{
 	//	<div></div>
 	//}
-	
+
   	return (		  
   	  <MainDiv>
 		<section>
@@ -260,11 +258,9 @@ function Home() {
 	  );
 	  
   return(
-	<AddProducts clickedProduct={clickedProduct}/>
-  )
-		
-  	
-	
+	<AddProducts clickedProduct={clickedProduct}/>,
+	<Solo_Product product={products}/>
+  )	
 }
 
 export default Home;
