@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Carrinho from './Pages/Carrinho/index.js';
 
+
 import Home from './Pages/Home';
 
 import Choose from './Pages/Choose';
