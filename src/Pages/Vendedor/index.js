@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import api from '../../service/api';
 
 import DeleteIcon from '@material-ui/icons/DeleteForever';
@@ -15,7 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles'
 
-import { SubMenu, Container, ContainerSup, ContainerInf, Products, Product, Location, SectionAddProduct } from './styles';
+import { SubMenu, Container, ContainerSup, ContainerInf, Products, Product, Location, SectionAddProduct, ImageCard } from './styles';
 import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function Vendedor() {
     const [listProduct, setListProduct] = useState([]);
     const classes = useStyles();
+    const history = useHistory();
 
     useEffect (() => {
       api
@@ -58,11 +60,15 @@ function Vendedor() {
       }
     }
 
-    function addProduct() {
+    const addProduct = () => {
       // redireciona para a página de adição do produto
-      console.log('add prod')
-      Redirect('')
+      history.push('/addProduct');
     }
+
+    const DetailProduct = () => {
+      history.push(`/Product`);
+    }
+
 
     return(
       <Container>
@@ -77,7 +83,7 @@ function Vendedor() {
           </ContainerInf>
         </SubMenu>
         <SectionAddProduct>
-          <Fab size='small' color='primary' onClick={addProduct()}>
+          <Fab size='small' color='primary' onClick={addProduct}>
             <AddIcon />
           </Fab>
         </SectionAddProduct>
@@ -86,7 +92,7 @@ function Vendedor() {
           <Product key={product.id}>
             <Card>
               <CardActionArea>
-                <img src={product.photos} title={product.name}/>
+                <ImageCard src={product.photos} title={product.name} onClick={DetailProduct}/>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
                     {product.name}

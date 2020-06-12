@@ -9,7 +9,7 @@ export const ContainerSup = styled.div`
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: #1DA89A;
-    height: 100px;
+    height: 150px;
 `;
 
 export const ContainerInf = styled.div`
@@ -36,3 +36,7 @@ export const SectionAddProduct = styled.div`
     justify-content: flex-end;
     padding: 1rem;
     `
+export const ImageCard = styled.img`
+    width: 300px;
+    height: 200px;
+`
