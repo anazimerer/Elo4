@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { formatPrice } from '../../util/format';
+
 const DivRoot = styled.div`
   display: flex;
   flex-direction: row;
@@ -89,15 +91,15 @@ const DivRadio = styled.div`
 
 function Carrinho() {
   //const [products, setProducts] = useState()
-  const [preco1, setpreco1] = useState(23);
-  const [preco2, setpreco2] = useState(10);
-  const [total, setTotal] = useState();
+  const [items, setItems] = useState([]);
   const [myCart, setmyCart] = useState();
   const [installments, setInstallments] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState([]);
 
   useEffect(() => {
     {
+      const storage = localStorage.getItem('cart');
+      setItems(JSON.parse(storage));
       setmyCart();
     }
   }, []);
@@ -112,10 +114,6 @@ function Carrinho() {
     console.log('metodo');
   };
 
-  function AddCartValues() {
-    setTotal(total + preco1 + preco2);
-  }
-
   const listOfProducts = () => {
     if (JSON.parse(localStorage.getItem('cart') !== null)) {
       return JSON.parse(localStorage.getItem('cart')).map((product) => {
@@ -129,7 +127,7 @@ function Carrinho() {
               </DivPhoto>
               <ProductInfo>
                 <h4>{product.name}</h4>
-                <p>R${product.price}</p>
+                <p>{formatPrice(product.price)}</p>
               </ProductInfo>
             </ProductCart>
           </div>
@@ -153,13 +151,14 @@ function Carrinho() {
           <p>São Paulo - SP</p>
           <a>Alterar endereço</a>
           <hr />
-          <p>
-            Frete
-            <input type="radio" value="0" />
-            <label>Padrão (R$12,80)</label>
-            <input type="radio" value="0" />
-            <label>Reduzido (grátis) </label>
-          </p>
+          <p>Frete </p>
+          <label for="frete">Padrão (R$12,80)</label>
+          <input type="radio" id="0" name="frete" value="0" />
+          <br />
+
+          <label for="frete">Reduzido (grátis) </label>
+
+          <input type="radio" id="1" name="frete" value="1" />
         </div>
       </SectionInfos>
 
@@ -168,14 +167,26 @@ function Carrinho() {
         <InfosPayment>
           <h4>produtos</h4>
           <span>
-            <p>preço total</p>
-            <p>{total}</p>
+            <span>
+              preço total
+              {formatPrice(
+                items.reduce(
+                  (acumulador, product) => acumulador + product.price,
+                  0
+                )
+              )}
+            </span>
           </span>
           <p>frete</p>
           <p>taxa de serviço </p>
           <p>cupom</p>
         </InfosPayment>
         <h3>total a pagar:</h3>
+        <p>
+          {formatPrice(
+            items.reduce((acumulador, product) => acumulador + product.price, 0)
+          )}
+        </p>
         <section>
           <div>Paypal</div>
           <div>Cartão de Crédito</div>
