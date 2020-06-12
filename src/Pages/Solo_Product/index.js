@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import api from '../../service/api';
+
 import {Link} from 'react-router-dom'
 
 import { Container } from './styles';
@@ -7,17 +8,19 @@ import { Panel, NonHeightPanel, AvatarPanel, DataTable } from './styles';
 import { MainImage, SecondaryImage } from './styles';
 import { BuyPanel } from './styles';
 
+
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import BeenhereIcon from '@material-ui/icons/Beenhere';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import ReportProblemIcon from '@material-ui/icons/ReportProblem';
 
-function Solo_Product({
-  match: {
-    params: { id },
-  },
-}) {
+  function Solo_Product({
+    match: {
+      params: { id },
+    },
+  }) {
+    
   const [product, setProduct] = React.useState();
 
   useEffect(() => {
@@ -30,11 +33,10 @@ function Solo_Product({
 
   const GetProductlist = () => {
     api.get().then((response) => {
-        console.log(response);
         response.data.products.forEach(product => {
-            if(product.id === "eZWLnhldjC8tg5ImsmFC")
+            if(":" + product.id === id)
             {
-                setProduct(product);
+              setProduct(product);
             }
         });
     });
@@ -89,9 +91,8 @@ function Solo_Product({
             </DataTable>
           </NonHeightPanel>
         </div>
-      );
-    }   
-  };
+      )};   
+  }
 
   const GetPhotos = () => {
     if (product !== undefined) {
@@ -117,20 +118,22 @@ function Solo_Product({
                 <Button variant="contained" color="primary" fullWidth="true" onClick={() => AddToCart(1)}>Adicionar ao Carrinho</Button>
             </BuyPanel>
           </Panel>
-          <table>
-            <tr>
-              <td><BeenhereIcon/></td>
-              <td><p>Comprar na Elo4 é seguro</p></td>
-            </tr>
-            <tr>
-                <td><RemoveShoppingCartIcon/></td>
-                <td><p>Se não gostar a devolução é gratis</p></td>
-            </tr> 
-            <tr>
-                <td> <ReportProblemIcon/></td>
-                <td> <p>Denunciar</p> </td>
-            </tr>
-          </table>
+            <table>
+              <tbody>
+                <tr>
+                  <td><BeenhereIcon/></td>
+                  <td><p>Comprar na Elo4 é seguro</p></td>
+                </tr>
+                <tr>
+                    <td><RemoveShoppingCartIcon/></td>
+                    <td><p>Se não gostar a devolução é gratis</p></td>
+                </tr> 
+                <tr>
+                    <td> <ReportProblemIcon/></td>
+                    <td> <p>Denunciar</p> </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
       );
     }

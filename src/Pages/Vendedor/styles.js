@@ -20,6 +20,7 @@ export const ContainerInf = styled.div`
     padding: 1rem;
 `;
 export const Products = styled.div`
+    margin: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
