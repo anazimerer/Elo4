@@ -102,6 +102,7 @@ const Grid1 = styled.div`
 function Home() {
 	const [products, setProducts] = useState([]);
 	const [clickedProduct, setClickedProduct] = useState();
+	const [openSoloProduct, setOpenSoloProduct] = useState(false);
 
 	useEffect(()=>{
 		api
@@ -168,10 +169,16 @@ function Home() {
 
 	function OnClickImageProduct(product){
 		setClickedProduct(product)
-		console.log(clickedProduct)
+		setClickedProduct(true)
 	}
 	
-  	return (
+	//if (openSoloProduct===true){
+	//	<Solo_Product product={products}/>
+	//}else{
+	//	<div></div>
+	//}
+	
+  	return (		  
   	  <MainDiv>
 		<section>
 			<Advertising 
@@ -250,11 +257,13 @@ function Home() {
 			/>
 		</section>
   	  </MainDiv>
-  	);
-  return (
-	  		<AddProducts product={products}/>,
-			<Solo_Product clickedProduct={clickedProduct}/>
-  		)
+	  );
+	  
+  return(
+	<AddProducts clickedProduct={clickedProduct}/>
+  )
+		
+  	
 	
 }
 
