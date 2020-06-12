@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './Pages/Home';
+import Carrinho from './Pages/Carrinho/index.js';
 
 import Choose from './Pages/Choose';
 import Product from './Pages/Solo_Product';
