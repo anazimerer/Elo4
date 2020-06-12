@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      marginTop: '90px'
+      marginTop: '95px'
     },
     textField: {
       marginLeft: theme.spacing(1),
@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     },
     margin: {
         marginLeft: theme.spacing(1),
-        marginTop: '3px',
+        marginTop: '15px',
+        marginBottom: '40px',
     }
   }));
 
@@ -75,7 +76,7 @@ export default function AddProducts () {
 
     return(
 
-        <Container maxWidth="sm">
+        <Container maxWidth="md">
             <Formulario className={classes.root}>
                 <Grid item xs={12}>
                     <TextField value={name}
@@ -152,12 +153,12 @@ export default function AddProducts () {
                     justify="flex-end"
                     alignItems="flex-end"
                 >
-                    <Button variant="outlined" color="secondary" size="small"
-                        onClick={ClearAll}> 
+                    <Button variant="outlined" color="secondary" size="medium"
+                        onClick={ClearAll} className={classes.margin}> 
                             Limpar
                     </Button>
 
-                    <Button variant="contained" color="primary" size="small"
+                    <Button variant="contained" color="primary" size="medium"
                         onClick={CreateProduct} className={classes.margin}>
                             Criar Produto
                     </Button>
@@ -166,5 +167,5 @@ export default function AddProducts () {
             </Formulario>
         </Container>
     )
+    
 }
-
