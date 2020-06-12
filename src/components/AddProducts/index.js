@@ -10,14 +10,6 @@ import {
 
 from '@material-ui/core';
 
-import {
-  Grid,
-  Button,
-  makeStyles,
-  TextField,
-  Container,
-} from '@material-ui/core';
-
 import api from '../../service/api';
 
 const useStyles = makeStyles((theme) => ({
@@ -175,3 +167,4 @@ export default function AddProducts () {
         </Container>
     )
 }
+
