@@ -1,5 +1,6 @@
 import React, {useEffect, useState}from 'react';
 import styled from 'styled-components';
+
 import api from '../../service/api';
 import AddProducts from '../../components/AddProducts/index.js';
 import Solo_Product from '../../Pages/Solo_Product/index.js';
@@ -117,7 +118,9 @@ function Home() {
 	}, []);
 	
 	const imageListSection1 = products.filter((product => {
+
 			if (product.category==='Joias'){	
+
 				return product						
 			}else{
 				return false
@@ -195,17 +198,19 @@ function Home() {
 		<Section>
 			<Grid4>
 				{imageList1[0]}
-				{imageList1[4]}
-				{imageList1[2]}
-				{imageList1[3]}
+				{imageList1[0]}
+				{imageList1[0]}
+				{imageList1[0]}
 			</Grid4>
 			<Grid1>
-				{imageList1[2]}
+				{imageList1[0]}
 			</Grid1>	
+
 			<Grid4>
 				{imageList1[8]}
 				{imageList1[6]}
 				{imageList1[4]}
+
 				{imageList1[0]}
 			</Grid4>		
 		</Section>
@@ -258,12 +263,14 @@ function Home() {
 			/>
 		</section>
   	  </MainDiv>
+
 	  );
 	  
   return(
 	<AddProducts clickedProduct={clickedProduct}/>,
 	<Solo_Product product={products}/>
   )	
+
 }
 
 export default Home;
