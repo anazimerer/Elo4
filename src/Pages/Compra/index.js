@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     }, 
     ratioLeft: {
       textAlign: "left", 
-
+      margin: '5px',
     },
     iconCenter: {
         margin: "0 0 -5 0"
@@ -36,67 +36,19 @@ const useStyles = makeStyles((theme) => ({
 function Compra() {
     const classes = useStyles();
     const [products, setProducts] = useState([]);
-    const [paymentMethod, setPaymentMethod] = useState([]);
-    const [installments, setInstallments] = useState([]);
-
-    const product = [
-            {
-                "description": "Anel bonito!",
-                "paymentMethod": "card",
-                "installments": 3,
-                "photos": [
-                    "https://contestimg.wish.com/api/webimage/5d1573050f87466658293983-0-feed?cache_buster=e5fb67562b5b3576eedfa3befd7fa7b7"
-                ],
-                "category": "Joias",
-                "price": 50,
-                "name": "Anel com pedra",
-                "id": "3IKizH65ZSrFU03GnWiL"
-            },
-            {
-                "paymentMethod": "card",
-                "installments": 3,
-                "photos": [
-                    "https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/cars-subcontent/segmento-carros/02-images/onix-premier.png"
-                ],
-                "category": "Carro",
-                "price": 10,
-                "name": "Onyx Chevrolet",
-                "description": "Carro chevrolet Onyx novo 2019 / 2020",
-                "id": "Aewj7zvmzfh6yK8DIwbT"
-            }
-        ]
-
-    const productSetItem = () => {
-        localStorage.setItem("products", JSON.stringify(product))
-    }
+    const [paymentMethod, setPaymentMethod] = useState({});
+    const [installments, setInstallments] = useState({});
 
     useEffect(() => {
-        const productsBuy = localStorage.getItem("products")
+        const productsBuy = localStorage.getItem("cart")
         const productObject = JSON.parse(productsBuy)
         setProducts(productObject)
-        const payment = localStorage.getItem("paymentMethod")
-        const paymentMethod = JSON.parse(payment)
+        const paymentMethod = JSON.parse(localStorage.getItem("paymentMethod"))
         setPaymentMethod(paymentMethod)
         const installments = localStorage.getItem("installments")
         const installmentsObject = JSON.parse(installments)
         setInstallments(installmentsObject)
     },[])
-
-    const pay = paymentMethod.map((payment)=>{
-        if (payment.paymentMethod.toUpperCase() === "CARD") {
-            return(<>
-                <h2>Forma de pagamento: Cartão</h2>
-                <CreditCardIcon viewBox="0 0 24 17"/>
-                </>
-                )
-        } else {
-            return(<>
-                <h2>Forma de pagamento: Boleto</h2>
-                <ViewWeekIcon viewBox="0 0 24 17"/>
-                </>
-            )
-        }
-      })
 
     const valueBuy =  products.reduce((acumulador, product) => 
         acumulador + product.price, 0);
@@ -111,7 +63,7 @@ function Compra() {
         <SubMenu>
           <ContainerSup></ContainerSup>
           <Link to="/">
-            <Button className={classes.ratioLeft} variant="contained" color="primary" fullWidth="true" onClick={limparLocalStorage}>Quero Comprar</Button>
+            <Button className={classes.ratioLeft} variant="contained" color="primary" onClick={limparLocalStorage}>Quero Comprar</Button>
           </Link>
         </SubMenu>
         <Report>
@@ -131,14 +83,19 @@ function Compra() {
             )})}
             <hr />
             <ReportFinal>
-                {pay}
-                {installments.map((installment)=>{
-                return(
-                    <>
-                    <b className={classes.font}> {installment.installments}x R$ {(valueBuy.toFixed(2)/installment.installments).toFixed(2)}</b>
-                    </>)
-                })}
-                <TotalH2>TOTAL: R$ {valueBuy.toFixed(2)}</TotalH2>
+              {paymentMethod.paymentMethod === "card" &&
+                <>
+                  <h2>Forma de pagamento: Cartão</h2>
+                  <CreditCardIcon viewBox="0 0 24 17"/>
+                </>
+                } {paymentMethod.paymentMethod !== "card" &&
+                <>
+                  <h2>Forma de pagamento: Boleto</h2>
+                  <ViewWeekIcon viewBox="0 0 24 17"/>
+                </>
+                }
+              <b className={classes.font}> {installments.installments}x R$ {(valueBuy.toFixed(2)/installments.installments).toFixed(2)}</b>
+              <TotalH2>TOTAL: R$ {valueBuy.toFixed(2)}</TotalH2>
             </ReportFinal>
         </Report>
       </Container>
