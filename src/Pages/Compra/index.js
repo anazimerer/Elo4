@@ -31,6 +31,7 @@ function Compra() {
     const [products, setProducts] = useState([]);
     const [paymentMethod, setPaymentMethod] = useState();
     const [installments, setInstallments] = useState();
+
     useEffect(() => {
         const productsBuy = localStorage.getItem("cart")
         const productObject = JSON.parse(productsBuy)
@@ -72,17 +73,20 @@ function Compra() {
             <hr />
             <ReportFinal>
               {paymentMethod === "card" &&
+
                 <>
                   <h2>Forma de pagamento: Cartão</h2>
                   <CreditCardIcon viewBox="0 0 24 17"/>
                 </>
                 } {paymentMethod === "boleto" &&
+
                 <>
                   <h2>Forma de pagamento: Boleto</h2>
                   <ViewWeekIcon viewBox="0 0 24 17"/>
                 </>
                 }
               <b className={classes.font}> {installments}x R$ {(valueBuy.toFixed(2)/installments).toFixed(2)}</b>
+
               <TotalH2>TOTAL: R$ {valueBuy.toFixed(2)}</TotalH2>
             </ReportFinal>
         </Report>
