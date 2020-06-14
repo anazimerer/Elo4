@@ -97,8 +97,8 @@ const Grid1 = styled.div`
     border-radius: 7px;
     border: 0.5px grey;
     background-color: #d8d8d8;
-    width: 100%;
-    height: 95%;
+    width: 350px;
+    height: 94%;
     opacity: 0.85;
   }
   img:hover {
@@ -152,7 +152,7 @@ function Home() {
               OnClickImageProduct(item);
             }}
           />
-          <ProductPrice>R${item.price}</ProductPrice>
+          {/*<ProductPrice>R${item.price}</ProductPrice>*/}
         </Link>
       </>
     );
@@ -168,7 +168,7 @@ function Home() {
               OnClickImageProduct(item);
             }}
           />
-          <ProductPrice>R${item.price}</ProductPrice>
+         {/*<ProductPrice>R${item.price}</ProductPrice>*/}
         </Link>
       </>
     );
@@ -184,7 +184,7 @@ function Home() {
               OnClickImageProduct(item);
             }}
           />
-          <ProductPrice>R${item.price}</ProductPrice>
+          {/*<ProductPrice>R${item.price}</ProductPrice>*/}
         </Link>
       </>
     );
@@ -212,7 +212,22 @@ function Home() {
           alt="Propaganda 01"
         />
       </section>
-
+      
+      <SectionName>
+        <h5>Decoração</h5>
+        <p>pra sua casa!</p>
+      </SectionName>
+      <Section>
+        <Grid1>{imageList2[8]}</Grid1>
+        <Grid4>
+          {imageList2[2]}
+          {imageList2[3]}
+          {imageList2[4]}
+          {imageList2[5]}
+        </Grid4>
+        <Grid1>{imageList2[6]}</Grid1>
+      </Section>
+      
       <SectionName>
         <h5>Bijouterias</h5>
         <p>diversos modelos!</p>
@@ -233,22 +248,7 @@ function Home() {
 
           {imageList1[0]}
         </Grid4>
-      </Section>
-
-      <SectionName>
-        <h5>Decoração</h5>
-        <p>pra sua casa!</p>
-      </SectionName>
-      <Section>
-        <Grid1>{imageList2[8]}</Grid1>
-        <Grid4>
-          {imageList2[2]}
-          {imageList2[3]}
-          {imageList2[4]}
-          {imageList2[5]}
-        </Grid4>
-        <Grid1>{imageList2[6]}</Grid1>
-      </Section>
+      </Section>    
 
       <SectionName>
         <h5>Inverno</h5>
