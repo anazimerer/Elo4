@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import ViewWeekIcon from '@material-ui/icons/ViewWeek';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
+
 import { SubMenu, Container, ContainerSup } from '../Vendedor/styles';
 import { Report, ReportFinal, ImageCard, TotalH2 } from './style'
+
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -26,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
       }
     })
   )
+
 function Compra() {
     const classes = useStyles();
     const [products, setProducts] = useState([]);
@@ -73,18 +78,23 @@ function Compra() {
             <hr />
             <ReportFinal>
               {paymentMethod === "card" &&
-
                 <>
                   <h2>Forma de pagamento: Cartão</h2>
                   <CreditCardIcon viewBox="0 0 24 17"/>
                 </>
-                } {paymentMethod === "boleto" &&
-
+              } 
+              {paymentMethod === "boleto" &&
                 <>
                   <h2>Forma de pagamento: Boleto</h2>
                   <ViewWeekIcon viewBox="0 0 24 17"/>
                 </>
-                }
+              }
+              {paymentMethod === "paypal" &&
+                <>
+                  <h2>Forma de pagamento: Paypal</h2>
+                  <CreditCardIcon viewBox="0 0 24 17"/>
+                </>
+              }
               <b className={classes.font}> {installments}x R$ {(valueBuy.toFixed(2)/installments).toFixed(2)}</b>
 
               <TotalH2>TOTAL: R$ {valueBuy.toFixed(2)}</TotalH2>

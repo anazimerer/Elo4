@@ -52,7 +52,6 @@ function Vendedor() {
     api
       .get()
       .then((response) => {
-        console.log(response.data.products);
         setListProduct(response.data.products);
       })
       .catch((error) => {
@@ -79,6 +78,7 @@ function Vendedor() {
   };
 
   const DetailProduct = (id) => {
+    // redireciona para a página de detalhe do produto
     history.push(`/Product:${id}`);
   };
 
